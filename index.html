@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Dia dos Namorados 💘</title>
+  <style>
+
+    .foto {
+  margin-top: 30px;
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 20px #ff9ebc;
+  animation: fadeIn 4s ease forwards;
+}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(to right, #1e1e2f, #3a1c71);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+
+      
+    }
+    
+
+    h1 {
+      font-size: 3em;
+      animation: fadeIn 2s ease forwards;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-top: 20px;
+      max-width: 700px;
+      animation: fadeIn 3s ease forwards;
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ff7eb9;
+      font-size: 20px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10px) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  
+  <div class="content">
+    <h1>Feliz Dia dos Namorados, Meu Amor! 💖</h1>
+    <p>
+    <img src="nos.jpg" alt="Nosso Amor" class="foto">
+    <img src="nos2.jpg" alt="Nosso Amor" class="foto">
+    <img src="nos3.jpg" alt="Nosso Amor" class="foto">
+    <img src="nos4.jpg" alt="Nosso Amor" class="foto">
+      Você é o motivo do meu sorriso todos os dias.  
+      Obrigado por ser minha pessoa favorita no mundo.  
+      Eu te amo mais do que palavras podem dizer. 💘
+    </p>
+  </div>
+
+  <script>
+    const heartsContainer = document.getElementById('hearts');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.textContent = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+      heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      heartsContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+
+    setInterval(createHeart, 200);
+  </script>
+</body>
+</html>
